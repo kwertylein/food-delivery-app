@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class UserResponse {
-    @Getter @Setter private long id;
+    @Getter @Setter private Long id;
     @Getter @Setter private String name;
     @Getter @Setter private String email;
 
