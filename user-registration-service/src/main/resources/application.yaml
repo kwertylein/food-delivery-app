@@ -1,3 +1,5 @@
+server:
+  port: 8081
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/food-app
@@ -6,4 +8,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-
+keycloak:
+  admin:
+    username: kais.amanov.42@gmail.com
+    password: admin
+  auth-server-url: https://app.please-open.it/auth
+  realm: 89c92ad2-6f22-448c-a651-a8d1098debba
+  resource: user-auth-service
+  credentials:
+    secret: IPk7aJWEwTqLUKlLnHpbrgO74s4MwcjD
+  ssl-required: external
+  confidential-port: 0
