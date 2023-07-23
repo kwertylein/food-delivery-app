@@ -1,15 +1,13 @@
 package com.example.userregistrationservice.dto;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-
-@RequiredArgsConstructor
+@Getter @Setter
 public class UserResponse {
-    @Getter @Setter private String id;
-    @Getter @Setter private String name;
-    @Getter @Setter private String email;
+    private String id;
+    private String name;
+    private String email;
 
     public UserResponse(String id, String name, String email){
         this.id = id;

@@ -7,6 +7,7 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -14,6 +15,8 @@ import java.util.Collections;
 @Service
 @RequiredArgsConstructor
 public class KeycloakServiceImpl implements KeycloakService {
+    @Value("${keycloak.realm}")
+    private final String realmName;
     private final Keycloak keycloak;
 
     @Override
@@ -30,7 +33,7 @@ public class KeycloakServiceImpl implements KeycloakService {
 
         userRepresentation.setCredentials(Collections.singletonList(credentialRepresentation));
 
-        UsersResource users = keycloak.realm("89c92ad2-6f22-448c-a651-a8d1098debba").users();
+        UsersResource users = keycloak.realm(realmName).users();
 
         users.create(userRepresentation);
         return userRepresentation;
